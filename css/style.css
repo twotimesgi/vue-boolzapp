@@ -36,6 +36,7 @@ body::after{
     height: 95vh;  
     min-height: 700px;
     display: flex;
+    box-shadow: 0px 0px 10px 10px rgba(0,0,0,0.05);
 }
 
 .app_chat-list{
@@ -89,6 +90,7 @@ body::after{
     flex-shrink: 0;
     overflow: hidden;
     background-color: white;
+    border: 1px solid #e6e6e6; 
 }
 
 .rounded > img{
@@ -168,12 +170,36 @@ body::after{
 }
 
 .chat-message{
-    width: 300px;
+    max-width: 300px;
     padding: 15px 15px 25px 15px;
     border-radius: 10px;
     position: relative;
     font-size: 0.9rem;
     line-height: 1.2rem;  
+}
+
+.chat-message--sender.chat-message--first::before{
+    content: "";
+    position: absolute;
+    right: -15px; 
+    top: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 20px 20px 0 0;
+    border-color: #d5f9ba transparent transparent transparent;
+}
+
+.chat-message--receiver.chat-message--first::before{
+    content: "";
+    position: absolute;
+    left: -15px; 
+    top: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 20px 20px 0;
+    border-color: transparent #ffffff transparent transparent; 
 }
 
 .chat-message--sender{
