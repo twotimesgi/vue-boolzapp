@@ -29,29 +29,35 @@ body::after{
     background-color: white;
     width: 80%;
     min-width: 900px; 
-    height: 90vh; 
+    height: 95vh;  
     min-height: 700px;
     display: flex;
 }
 
 .app_chat-list{
+    position: relative;
     width: 35%;
     background-color: grey;
 }
 
 .app_chat{
+    position: relative;
     width: 65%;
-    background-image: url("../img/mine.jpg");
 }
 
 .top-bar{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
     background-color: #EAEAEA;
     width: 100%;
-    height: 4.5rem;  
+    height: 4.5rem;    
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 10px;
+    z-index: 3;
 }
 
 .app_chat-list .top-bar{
@@ -63,13 +69,13 @@ body::after{
     align-items: center;
 }
 
-.top-bar__right{
-    gap: 25px;
-    margin-right: 20px;
-}
-
 .top-bar__left{
     gap: 10px;
+}
+
+.top-bar__right{
+    gap: 20px;
+    margin-right: 20px;
 }
 
 .profile-pic{
@@ -97,7 +103,79 @@ body::after{
     opacity: 0.6;
 }
 
-div[role="button"]{
-    font-size: 25px;
+.btn{
     opacity: 0.3; 
 } 
+
+.btn > span{
+    font-size: 24pt;   
+}
+
+.btn > i{
+    font-size: 20pt;
+}
+
+.message-bar{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #F3EEEA;
+    height: 4.5rem; 
+    display: flex;
+    padding: 0 30px;
+    gap: 30px;
+    align-items: center;
+    z-index: 3;
+}
+
+.message-bar input{
+    flex-grow: 1;
+    border: 0;
+    padding: 15px;
+    font-size: 12pt;  
+}
+
+.btn--opaque{
+    opacity: 0.6; 
+}
+
+.message-box{
+    width: 100%;
+    height: 100%;
+    background-image: url("../img/mine.jpg");
+    display: flex;
+    flex-direction: column;
+    padding: 30px; 
+    padding: 8rem 7rem;     
+    overflow: scroll;
+    gap: 15px; 
+}
+
+.chat-message{
+    width: 300px;
+    padding: 15px;
+    border-radius: 10px;
+    position: relative;
+    font-size: 0.9rem;
+    font-weight: 300; 
+    line-height: 1.2rem;  
+}
+
+.chat-message--sender{
+    background-color: #D5F9BA;
+    align-self: flex-end;
+}
+
+.chat-message--receiver{
+    background-color: #fff;
+    align-self: flex-start;
+}
+
+.chat-message__time{
+    font-size: 7pt;
+    position: absolute;
+    bottom: 5px;
+    right: 5px; 
+    opacity: 0.4;
+}

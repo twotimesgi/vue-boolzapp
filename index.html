@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boolzap Web</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
     <div class="app">
         <div class="app_chat-list">
@@ -19,28 +24,88 @@
                     </span>
                 </div>
                 <div class="top-bar__right">
-                    <div role="button"><i class="fa-solid fa-circle-notch"></i></div>
-                    <div role="button"><i class="fa-solid fa-message"></i></div>
-                    <div role="button"><i class="fa-solid fa-ellipsis-vertical"></i></div>
+                    <div class="btn" role="button"><i class="fa-solid fa-circle-notch"></i></div>
+                    <div class="btn" role="button">
+                        <span class="material-icons">chat_bubble</span>
+                    </div>
+                    <div class="btn" role="button">
+                        <span class="material-icons">more_vert</span>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="app_chat">
-                <div class="top-bar">
-                    <div class="top-bar__left">
-                        <img class="profile-pic profile-pic--small" src="img/avatar_1.jpg" alt="pippo's profile pic">
-                        <span class="contact-info">
-                            <span class="contact-info__name">Pippo</span>
-                            <span class="contact-info__last-seen">Last seen today at 19:00</span>
-                        </span>
-                    </div>
+            <div class="top-bar">
+                <div class="top-bar__left">
+                    <img class="profile-pic profile-pic--small" src="img/avatar_1.jpg" alt="pippo's profile pic">
+                    <span class="contact-info">
+                        <span class="contact-info__name">Pippo</span>
+                        <span class="contact-info__last-seen">Last seen today at 19:00</span>
+                    </span>
+                </div>
                 <div class="top-bar__right">
-                    <div role="button"><i class="fa-solid fa-magnifying-glass"></i></div>
-                    <div role="button"><i class="fa-solid fa-paperclip"></i></div>
-                    <div role="button"><i class="fa-solid fa-ellipsis-vertical"></i></div>
+                    <div class="btn" role="button">
+                        <span class="material-icons">search</span>
+                    </div>
+                    <div class="btn" role="button">
+                        <span class="material-icons">attach_file</span>
+                    </div>
+                    <div class="btn" role="button">
+                        <span class="material-icons">more_vert</span>
+                    </div>
+                </div>
+            </div>
+            <div class="message-box">
+                <div class="chat-message chat-message--sender">
+                    <span class="message">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque, odit.
+                        Placeat voluptate animi nostrum. Aliquam quam, nisi ducimus tempora possimus voluptatum, enim
+                        corporis veniam commodi voluptas adipisci vitae quidem nobis!</span>
+                    <span class="chat-message__time">17:00</span>
+                </div>
+                <div class="chat-message chat-message--receiver">
+                    <span class="message"> Aliquam quam, nisi ducimus tempora possimus voluptatum, enim corporis veniam
+                        commodi voluptas adipisci vitae quidem nobis!</span>
+                    <span class="chat-message__time">17:00</span>
+                </div>
+                <div class="chat-message chat-message--sender">
+                    <span class="message">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque, odit.
+                        Placeat voluptate animi nostrum. Aliquam quam, </span>
+                    <span class="chat-message__time">17:00</span>
+                </div>
+                <div class="chat-message chat-message--receiver">
+                    <span class="message">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque, odit.
+                        Placeat voluptate animi nostrum. Aliquam quam, nisi ducimus tempora possimus voluptatum</span>
+                    <span class="chat-message__time">17:00</span>
+                </div>
+                <div class="chat-message chat-message--receiver">
+                    <span class="message">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque, odit.
+                        Placeat voluptate animi nostrum. Aliquam quam, nisi ducimus tempora possimus voluptatum, enim
+                        corporis veniam commodi voluptas adipisci vitae quidem nobis!</span>
+                    <span class="chat-message__time">17:00</span>
+                </div>
+                <div class="chat-message chat-message--sender">
+                    <span class="message"> Placeat voluptate animi nostrum. Aliquam quam, nisi ducimus tempora possimus
+                        voluptatum, enim corporis veniam commodi voluptas adipisci vitae quidem nobis!</span>
+                    <span class="chat-message__time">17:00</span>
+                </div>
+                <div class="chat-message chat-message--receiver">
+                    <span class="message"> Placeat voluptate animi nostrum. Aliquam quam, nisi ducimus tempora possimus
+                        voluptatum, enim corporis veniam commodi voluptas adipisci vitae quidem nobis!</span>
+                    <span class="chat-message__time">17:00</span>
+                </div>
+
+            </div>
+            <div class="message-bar">
+                <div class="btn btn--opaque" role="button">
+                    <span class="material-icons">sentiment_satisfied_alt</span>
+                </div>
+                <input type="text" placeholder="Write a message...">
+                <div class="btn btn--opaque" role="button">
+                    <span class="material-icons">mic</span>
                 </div>
             </div>
         </div>
     </div>
 </body>
-</html> 
+
+</html>
