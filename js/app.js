@@ -19,7 +19,7 @@ var app = new Vue({
                         isReceived: false
                     },
                     {
-                        date: "10/01/2020 16:10:55",
+                        date: "3/15/2022 16:10:55",
                         text: "Tutto fatto!",
                         isReceived: true
                     }
@@ -27,21 +27,21 @@ var app = new Vue({
             },
             {
                 name: "Federica",
-                lastSeen: "03/14/2020 15:30:55",
+                lastSeen: "03/14/2022 15:30:55",
                 profilePic: "https://avatars.dicebear.com/api/miniavs/avatar1.svg",
                 messages: [
                     {
-                        date: "15/03/2022 15:30:55",
+                        date: "03/13/2022 15:30:55",
                         text: "Ciao fede, come stai?",
                         isReceived: false
                     },
                     {
-                        date: "10/01/2020 15:50:55",
+                        date: "03/13/2020 15:50:55",
                         text: "Tutto bene dai! tu?",
                         isReceived: true
                     },
                     {
-                        date: "10/01/2020 16:10:55",
+                        date: "03/14/2022 16:10:55",
                         text: "Alla grande!",
                         isReceived: true
                     }
@@ -62,17 +62,32 @@ var app = new Vue({
         },
         getMessageTime(message){
             let date = new Date(message.date);
-            return date.toTimeString().slice(0, 5);
+            return date.toLocaleTimeString("en-US", {hour: '2-digit', minute: '2-digit'});
         },
-        getLastSeen(contact){
-            let date = new Date(contact.lastSeen);
-            return this.dateToText(date);
-        },
-        dateToText(date){
+        dateToText(obj, isContact = true){
+            let date = isContact ? new Date(obj.lastSeen) : new Date(obj.date);  
             let today = new Date();
-            if(date.getMonth() == today.getMonth() &&
-            date.getFullYear() == today.getFullYear()) return "Today";
-            return date.toLocaleDateString('it-IT');
+            let yesterday = new Date((new Date()).valueOf() - 1000*60*60*24);
+
+            if(date.getDate() == today.getDate() && date.getMonth() == today.getMonth() &&
+            date.getFullYear() == today.getFullYear()){
+                if(isContact){ 
+                    return "Today at "+date.toLocaleTimeString("en-US", { hour: '2-digit', minute: '2-digit' });
+                }else{ 
+                    return date.toLocaleTimeString("en-US", { hour: '2-digit', minute: '2-digit' });
+                }; 
+            }
+
+            if(date.getDate() == yesterday.getDate() && date.getMonth() == yesterday.getMonth() &&
+            date.getFullYear() == yesterday.getFullYear()){
+                if(isContact){ 
+                    return "Today at "+date.toLocaleTimeString("en-US", { hour: '2-digit', minute: '2-digit' });
+                }else{ 
+                    return "Yesterday";
+                }
+            }
+
+            return date.toLocaleDateString('en-US') +" "+ date.toLocaleTimeString('en-US');
         }
     },
     created(){
