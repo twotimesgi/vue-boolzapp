@@ -122,11 +122,11 @@ body::after{
 } 
 
 .btn > span{
-    font-size: 24pt;   
+    font-size: 20pt;    
 }
 
 .btn > i{
-    font-size: 20pt;
+    font-size: 16pt;
 }
 
 .message-bar{
