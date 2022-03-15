@@ -90,7 +90,5 @@ var app = new Vue({
             return date.toLocaleDateString('en-US') +" "+ date.toLocaleTimeString('en-US');
         }
     },
-    created(){
-        this.currentChat = this.conversations[0];
-    }
-  })
+  });
+  
