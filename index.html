@@ -11,6 +11,9 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -18,9 +21,9 @@
         <div class="app_chat-list">
             <div class="top-bar">
                 <div class="top-bar__left">
-                    <img class="profile-pic profile-pic--small" src="img/avatar_io.jpg" alt="my profile pic">
-                    <span class="contact-info">
-                        <span class="contact-info__name">Luigi</span>
+                    <div class="rounded rounded--small"><img src="img/avatar_io.jpg" alt="my profile pic"></div>
+                    <span class="text-box">
+                        <span class="text-box__title">Luigi</span>
                     </span>
                 </div>
                 <div class="top-bar__right">
@@ -33,14 +36,66 @@
                     </div>
                 </div>
             </div>
+            <div class="banner">
+                <div class="rounded rounded--small">
+                    <span class="material-icons">notifications_off</span>
+                </div>
+                <span class="text-box">
+                    <span class="text-box__title">Receive notifications of new messages</span>
+                    <span class="text-box__subtitle"><a href="#">Enable desktop notifications</a></span>
+                </span>
+            </div>
+            <div class="chat-list">
+                <div class="chat-list__search">
+                    <span class="material-icons">search</span>
+                    <input placeholder="Search or start a new chat" type="text">
+                </div>
+                <div class="chat-list__conversations">
+                    <div class="conversation">
+                        <div class="rounded"><img src="img/avatar_1.jpg" alt="Pippo's profile pic"></div>
+                        <span class="text-box">
+                            <span class="text-box__title">Pippo &#129409; </span>
+                            <span class="text-box__subtitle">Ultimo messaggio inviato</span>
+                        </span>
+                    </div>
+                    <div class="conversation">
+                        <div class="rounded"><img src="img/avatar_6.jpg" alt="Federica's profile pic"></div>
+                        <span class="text-box">
+                            <span class="text-box__title">Federica</span>
+                            <span class="text-box__subtitle">Ultimo messaggio inviato</span>
+                        </span>
+                    </div>
+                    <div class="conversation">
+                        <div class="rounded"><img src="img/avatar_3.jpg" alt="Dave's profile pic"></div>
+                        <span class="text-box">
+                            <span class="text-box__title">Dave</span>
+                            <span class="text-box__subtitle">Ultimo messaggio inviato</span>
+                        </span>
+                    </div>
+                    <div class="conversation">
+                        <div class="rounded"><img src="img/avatar_4.jpg" alt="Marco's profile pic"></div>
+                        <span class="text-box">
+                            <span class="text-box__title">Marco</span>
+                            <span class="text-box__subtitle">Ultimo messaggio inviato</span>
+                        </span>
+                    </div>
+                    <div class="conversation">
+                        <div class="rounded"><img src="img/avatar_4.jpg" alt="Marco's profile pic"></div>
+                        <span class="text-box">
+                            <span class="text-box__title">Mariko Calcetto</span>
+                            <span class="text-box__subtitle">&#128527; &#128527; &#128527;</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="app_chat">
             <div class="top-bar">
                 <div class="top-bar__left">
-                    <img class="profile-pic profile-pic--small" src="img/avatar_1.jpg" alt="pippo's profile pic">
-                    <span class="contact-info">
-                        <span class="contact-info__name">Pippo</span>
-                        <span class="contact-info__last-seen">Last seen today at 19:00</span>
+                    <div class="rounded rounded--small"><img src="img/avatar_1.jpg" alt="pippo's profile pic"></div>
+                    <span class="text-box">
+                        <span class="text-box__title">Pippo</span>
+                        <span class="text-box__subtitle">Last seen today at 19:00</span>
                     </span>
                 </div>
                 <div class="top-bar__right">
