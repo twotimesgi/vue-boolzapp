@@ -167,7 +167,7 @@ body::after{
     padding: 30px; 
     padding: 8rem 7rem;     
     overflow: scroll;
-    gap: 15px; 
+    gap: 3px; 
 }
 
 .no-chat-selected{
@@ -204,6 +204,7 @@ body::after{
 
 .chat-message{
     max-width: 300px;
+    min-width: 70px;
     padding: 15px 15px 25px 15px;
     border-radius: 10px;
     position: relative;
