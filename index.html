@@ -56,7 +56,7 @@
                         <span class="text-box">
                             <span class="text-box__title">{{ contact.name }}</span>
                             <span class="text-box__subtitle">{{ contact.messages[contact.messages.length-1].text }}</span>
-                            <span class="chat-message__time">{{ getMessageTime(contact.messages[contact.messages.length-1])) }}</span>
+                            <span class="chat-message__time">{{ getMessageTime(contact.messages[contact.messages.length - 1]) }}</span>
                         </span>
                     </div>
                 </div>
@@ -68,7 +68,7 @@
                     <div class="rounded rounded--small"><img :src="currentChat.profilePic" alt="pippo's profile pic"></div>
                     <span class="text-box">
                         <span class="text-box__title"> {{ currentChat.name }}</span>
-                        <span class="text-box__subtitle">{{ currentChat.lastSeen }}</span>
+                        <span class="text-box__subtitle"> Last seen {{ getLastSeen(currentChat) }}</span>
                     </span>
                 </div>
                 <div class="top-bar__right">

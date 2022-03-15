@@ -5,7 +5,7 @@ var app = new Vue({
         [
             {
                 name: "Pippo",
-                lastSeen: "15/03/2022 12:30:55",
+                lastSeen: "03/15/2022 12:30:55",
                 profilePic: "https://avatars.dicebear.com/api/miniavs/avatar2.svg",
                 messages: [
                     {
@@ -27,11 +27,11 @@ var app = new Vue({
             },
             {
                 name: "Federica",
-                lastSeen: "10/01/2020 15:30:55",
+                lastSeen: "03/14/2020 15:30:55",
                 profilePic: "https://avatars.dicebear.com/api/miniavs/avatar1.svg",
                 messages: [
                     {
-                        date: "10/01/2020 15:30:55",
+                        date: "15/03/2022 15:30:55",
                         text: "Ciao fede, come stai?",
                         isReceived: false
                     },
@@ -69,9 +69,10 @@ var app = new Vue({
             return this.dateToText(date);
         },
         dateToText(date){
-            if(someDate.getDate() == today.getDate() &&
-            someDate.getMonth() == today.getMonth() &&
-            someDate.getFullYear() == today.getFullYear()) return "Today";
+            let today = new Date();
+            if(date.getMonth() == today.getMonth() &&
+            date.getFullYear() == today.getFullYear()) return "Today";
+            return date.toLocaleDateString('it-IT');
         }
     },
     created(){
