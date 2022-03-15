@@ -205,11 +205,16 @@ body::after{
 .chat-message{
     max-width: 300px;
     min-width: 70px;
-    padding: 15px 15px 25px 15px;
+    padding: 4px;
     border-radius: 10px;
     position: relative;
     font-size: 0.9rem;
     line-height: 1.2rem;  
+}
+
+.chat-message .message{
+    width: 100%;
+    padding: 10px 60px 10px 15px;
 }
 
 .chat-message--sender.chat-message--first::before{
@@ -249,7 +254,7 @@ body::after{
 .chat-message__time{
     font-size: 7pt;
     position: absolute;
-    bottom: 5px;
+    bottom: 2px;
     right: 5px; 
     opacity: 0.4;
 }
@@ -317,10 +322,17 @@ body::after{
 }
 
 .conversation .text-box__subtitle{
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     opacity: 0.5; 
 }
 
 .conversation .chat-message__time{
     top: 9px;
+}
+
+.media-box img{
+    width: 100%;
+    border-radius: 10px;
+    z-index: 10;
+    position: relative;
 }

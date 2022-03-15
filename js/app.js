@@ -4,45 +4,76 @@ var app = new Vue({
         conversations: 
         [
             {
-                name: "Pippo",
+                name: "Pippo🍾",
                 lastSeen: "03/15/2022 12:30:55",
-                profilePic: "https://avatars.dicebear.com/api/miniavs/avatar2.svg",
+                profilePic: "img/profile-pic_1.jpg",
                 messages: [
                     {
                         date: "10/01/2020 15:30:55",
                         text: "Hai portato a spasso il cane?",
+                        media: "https://mypetandme.elanco.com/sites/g/files/adhwdz651/files/styles/image_642w_x_424h/public/2020-07/cane_di_labrador_retriever_disteso_nel_parco_in_una_giornata_soleggiata.jpg?itok=VMZil_AA",
                         isReceived: false
                     },
                     {
                         date: "10/01/2020 15:50:55",
                         text: "Ricordati di stendere i panni",
+                        media: null,
                         isReceived: false
                     },
                     {
                         date: "3/15/2022 16:10:55",
                         text: "Tutto fatto!",
+                        media: null,
                         isReceived: true
                     }
                 ]
             },
             {
-                name: "Federica",
+                name: "Fefe",
                 lastSeen: "03/14/2022 15:30:55",
-                profilePic: "https://avatars.dicebear.com/api/miniavs/avatar1.svg",
+                profilePic: "img/profile-pic_2.jpg",
                 messages: [
                     {
                         date: "03/13/2022 15:30:55",
                         text: "Ciao fede, come stai?",
+                        media: null,
                         isReceived: false
                     },
                     {
                         date: "03/13/2020 15:50:55",
                         text: "Tutto bene dai! tu?",
+                        media: null,
                         isReceived: true
                     },
                     {
                         date: "03/14/2022 16:10:55",
                         text: "Alla grande!",
+                        media: null,
+                        isReceived: true
+                    }
+                ]
+            },
+            {
+                name: "Babbo",
+                lastSeen: "03/11/2022 12:30:55",
+                profilePic: "img/profile-pic_4.jpg",
+                messages: [
+                    {
+                        date: "10/01/2020 15:30:55",
+                        text: "Hai portato a spasso il cane?",
+                        media: null,
+                        isReceived: false
+                    },
+                    {
+                        date: "10/01/2020 15:50:55",
+                        text: "Ricordati di stendere i panni",
+                        media: null,
+                        isReceived: false
+                    },
+                    {
+                        date: "3/11/2022 16:10:55",
+                        text: "Tutto fatto!",
+                        media: null,
                         isReceived: true
                     }
                 ]
@@ -82,7 +113,7 @@ var app = new Vue({
             if(date.getDate() == yesterday.getDate() && date.getMonth() == yesterday.getMonth() &&
             date.getFullYear() == yesterday.getFullYear()){
                 if(isContact){ 
-                    return "Today at "+date.toLocaleTimeString("en-US", { hour: '2-digit', minute: '2-digit' });
+                    return "Yesterday at "+date.toLocaleTimeString("en-US", { hour: '2-digit', minute: '2-digit' });
                 }else{ 
                     return "Yesterday";
                 }
