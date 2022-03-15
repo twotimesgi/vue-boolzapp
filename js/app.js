@@ -48,7 +48,8 @@ var app = new Vue({
                 ]
             }
         ],
-        currentChat: null
+        currentChat: null,
+        newMsg: ""
     },
     methods:{
         chatSwitch(contact){
@@ -88,6 +89,12 @@ var app = new Vue({
             }
 
             return date.toLocaleDateString('en-US') +" "+ date.toLocaleTimeString('en-US');
+        },
+        sendMessage(currentChat){
+            if(this.newMsg.trim() == "") return;
+            let newDate = new Date().toLocaleString("en-US"); 
+            currentChat.messages.push({ date: newDate, text: this.newMsg, isReceived: false});
+            this.newMsg = "";
         }
     },
   });

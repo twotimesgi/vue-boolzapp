@@ -100,7 +100,7 @@
                 <div class="btn btn--opaque" role="button">
                     <span class="material-icons">sentiment_satisfied_alt</span>
                 </div>
-                <input type="text" placeholder="Write a message...">
+                <input type="text" placeholder="Write a message..." v-model="newMsg" @keydown.enter="sendMessage(currentChat)">
                 <div class="btn btn--opaque" role="button">
                     <span class="material-icons">mic</span>
                 </div>
