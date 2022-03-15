@@ -48,10 +48,10 @@
             <div class="chat-list">
                 <div class="chat-list__search">
                     <span class="material-icons">search</span>
-                    <input placeholder="Search or start a new chat" type="text">
+                    <input v-model="query" placeholder="Search or start a new chat" @input = "searchConversations" type="text">
                 </div>
                 <div class="chat-list__conversations">
-                    <div v-for="contact in conversations" :class="currentChat != null && contact == currentChat ? 'conversation--selected':''" class="conversation" @click="chatSwitch(contact)">
+                    <div v-for="contact in conversationsFiltered" :class="currentChat != null && contact == currentChat ? 'conversation--selected':''" class="conversation" @click="chatSwitch(contact)">
                         <div class="rounded"><img :src="contact.profilePic" alt="Pippo's profile pic"></div>
                         <span class="text-box">
                             <span class="text-box__title">{{ contact.name }}</span>
@@ -95,7 +95,7 @@
                     <div v-if="message.media != null" class="media-box">
                         <img :src="message.media">
                     </div>
-                    <span class="message">{{ message.text }}</span>
+                    <div class="message">{{ message.text }}</div>
                     <span class="chat-message__time">{{ getMessageTime(message) }}</span>
                 </div>
             </div>
@@ -104,8 +104,9 @@
                     <span class="material-icons">sentiment_satisfied_alt</span>
                 </div>
                 <input type="text" placeholder="Write a message..." v-model="newMsg" @keydown.enter="sendMessage(currentChat)">
-                <div class="btn btn--opaque" role="button">
-                    <span class="material-icons">mic</span>
+                <div class="btn btn--opaque" role="button" @click="newMsg != '' ? sendMessage(currentChat) : ''">
+                    <span v-if="newMsg.trim() == ''" class="material-icons">mic</span>
+                    <span v-if="newMsg.trim() != ''" class="material-icons">send</span> 
                 </div>
             </div>
         </div>

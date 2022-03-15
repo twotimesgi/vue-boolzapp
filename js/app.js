@@ -22,7 +22,7 @@ var app = new Vue({
                     },
                     {
                         date: "3/15/2022 16:10:55",
-                        text: "Tutto fatto!",
+                        text: "Ok",
                         media: null,
                         isReceived: true
                     }
@@ -80,7 +80,9 @@ var app = new Vue({
             }
         ],
         currentChat: null,
-        newMsg: ""
+        newMsg: "",
+        conversationsFiltered: null,
+        query: ""
     },
     methods:{
         chatSwitch(contact){
@@ -104,7 +106,7 @@ var app = new Vue({
             if(date.getDate() == today.getDate() && date.getMonth() == today.getMonth() &&
             date.getFullYear() == today.getFullYear()){
                 if(isContact){ 
-                    return "Today at "+date.toLocaleTimeString("en-US", { hour: '2-digit', minute: '2-digit' });
+                    return "today at "+date.toLocaleTimeString("en-US", { hour: '2-digit', minute: '2-digit' });
                 }else{ 
                     return date.toLocaleTimeString("en-US", { hour: '2-digit', minute: '2-digit' });
                 }; 
@@ -113,20 +115,26 @@ var app = new Vue({
             if(date.getDate() == yesterday.getDate() && date.getMonth() == yesterday.getMonth() &&
             date.getFullYear() == yesterday.getFullYear()){
                 if(isContact){ 
-                    return "Yesterday at "+date.toLocaleTimeString("en-US", { hour: '2-digit', minute: '2-digit' });
+                    return "yesterday at "+date.toLocaleTimeString("en-US", { hour: '2-digit', minute: '2-digit' });
                 }else{ 
                     return "Yesterday";
                 }
             }
 
-            return date.toLocaleDateString('en-US') +" "+ date.toLocaleTimeString('en-US');
+            return date.toLocaleDateString('en-US') +" at "+ date.toLocaleTimeString('en-US');
         },
         sendMessage(currentChat){
             if(this.newMsg.trim() == "") return;
             let newDate = new Date().toLocaleString("en-US"); 
             currentChat.messages.push({ date: newDate, text: this.newMsg, isReceived: false});
             this.newMsg = "";
+        },
+        searchConversations(){
+            this.conversationsFiltered = this.conversations.filter(conv => conv.name.toLowerCase().startsWith(this.query.trim().toLowerCase()));
         }
     },
+    created(){
+        this.conversationsFiltered = [...this.conversations];
+    }
   });
   
