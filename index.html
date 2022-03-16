@@ -68,15 +68,12 @@
                     <div class="rounded rounded--small"><img :src="currentChat.profilePic" alt="pippo's profile pic"></div>
                     <span class="text-box">
                         <span class="text-box__title"> {{ currentChat.name }}</span>
-                        <span class="text-box__subtitle"> Last seen {{ dateToText(currentChat) }}</span>
+                        <span class="text-box__subtitle"> {{ isTyping ? 'Typing...' : 'Last seen ' + dateToText(currentChat) }}</span>
                     </span>
                 </div>
                 <div class="top-bar__right">
                     <div class="btn" role="button">
                         <span class="material-icons">search</span>
-                    </div>
-                    <div class="btn" role="button">
-                        <span class="material-icons">attach_file</span>
                     </div>
                     <div class="btn" role="button">
                         <span class="material-icons">more_vert</span>
@@ -102,6 +99,9 @@
             <div v-if="currentChat != null"class="message-bar">
                 <div class="btn btn--opaque" role="button">
                     <span class="material-icons">sentiment_satisfied_alt</span>
+                </div>
+                <div class="btn btn--opaque" role="button">
+                    <span class="material-icons">attach_file</span>
                 </div>
                 <input type="text" placeholder="Write a message..." v-model="newMsg" @keydown.enter="sendMessage(currentChat)">
                 <div class="btn btn--opaque" role="button" @click="newMsg != '' ? sendMessage(currentChat) : ''">

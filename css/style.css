@@ -11,8 +11,6 @@ a{
 body{
     background-color: #e0e0e0;
     font-family: 'Lato', sans-serif;
-    min-width: 900px;
-    height: 100vh;
     overflow: hidden;
 }
 
@@ -35,7 +33,6 @@ body::after{
     transform: translate(-50%,-50%);
     background-color: white;
     width: 85%;
-    min-width: 900px; 
     height: 95vh;  
     min-height: 700px;
     display: flex;
@@ -64,7 +61,7 @@ body::after{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 10px;
+    padding: 0 0.6rem;
     z-index: 3;
 }
 
@@ -128,11 +125,11 @@ body::after{
 } 
 
 .btn > span{
-    font-size: 20pt;    
+    font-size: 1.5rem;    
 }
 
 .btn > i{
-    font-size: 16pt;
+    font-size: 1.4rem;
 }
 
 .message-bar{
@@ -143,7 +140,7 @@ body::after{
     background-color: #F3EEEA;
     height: 4.5rem; 
     display: flex;
-    padding: 0 30px;
+    padding: 0 1.95rem;
     gap: 30px;
     align-items: center;
     z-index: 3;
@@ -152,8 +149,8 @@ body::after{
 .message-bar input{
     flex-grow: 1;
     border: none;
-    padding: 15px;
-    font-size: 12pt;  
+    padding: 1rem;
+    font-size: 0.9rem;  
     border-radius: 10px;
 }
 
@@ -167,7 +164,7 @@ body::after{
     background-image: url("../img/mine.jpg");
     display: flex;
     flex-direction: column;
-    padding: 30px; 
+    padding: 1.95rem; 
     padding: 8rem 7rem;     
     overflow: scroll;
     gap: 3px; 
@@ -199,6 +196,10 @@ body::after{
     font-weight: 300;
 }
 
+.no-chat-selected h1{
+    font-size: 2rem;
+}
+
 .no-chat-selected div p{
     font-weight: 500;
     opacity: 0.4;
@@ -208,7 +209,7 @@ body::after{
 .chat-message{
     max-width: 300px;
     min-width: 70px;
-    padding: 5px;
+    padding: 0.4rem;
     border-radius: 10px;
     position: relative;
     font-size: 0.9rem;
@@ -217,7 +218,7 @@ body::after{
 
 .chat-message .message{
     width: 100%;
-    padding: 3px 60px 3px 5px;
+    padding: 0.2rem 3.4rem 0.2rem 0.3rem;
 }
 
 .chat-message--sender.chat-message--first::before{
@@ -255,7 +256,7 @@ body::after{
 }
 
 .chat-message__time{
-    font-size: 7pt;
+    font-size: 0.7rem;
     position: absolute;
     bottom: 2px;
     right: 5px; 
@@ -268,13 +269,13 @@ body::after{
     width: 100%;
     margin-top: 4.5rem; 
     display: flex;
-    padding: 0 30px; 
+    padding: 0 2rem; 
     align-items: center;
     gap: 10px;
 }
 
-.banner .rounded span{
-    font-size: 25pt; 
+.banner .rounded span{ 
+    font-size: 1.7rem; 
     position: absolute;
     top: 50%;
     left: 50%;
@@ -286,7 +287,7 @@ body::after{
     height: 3.5rem;
     width: 100%;
     background-color: #EAEAEA;
-    padding: 7px;
+    padding: 0.5rem;
     position: relative;
 }
 
@@ -301,7 +302,7 @@ body::after{
 
 .chat-list__search input{
     width: 100%;
-    padding: 0 60px;
+    padding: 0 3.4rem;
     height: 100%;
     border: none;
     position: relative;
@@ -311,7 +312,7 @@ body::after{
 .conversation{
     display: flex;
     position: relative;
-    padding: 0 10px;
+    padding: 0 0.5rem;
     height: 5rem;
     gap: 10px;
     width: 100%;
@@ -338,4 +339,14 @@ body::after{
     border-radius: 10px;
     z-index: 10;
     position: relative;
+}
+
+@media screen and (max-width: 1020px) {
+    *{
+        font-size: 0.8rem;
+    }
+    .app{
+        width: 100%;
+        height: 100vh;
+    }
 }
