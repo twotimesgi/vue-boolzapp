@@ -55,7 +55,7 @@
                         <div class="rounded"><img :src="contact.profilePic" alt="Pippo's profile pic"></div>
                         <span class="text-box">
                             <span class="text-box__title">{{ contact.name }}</span>
-                            <span v-if="contact.messages.length > 0" class="text-box__subtitle">{{ contact.messages[contact.messages.length-1].text }}</span>
+                            <span v-if="contact.messages.length > 0" class="text-box__subtitle">{{ contact.messages[contact.messages.length-1].text.length > 20 ? contact.messages[contact.messages.length-1].text.substring(0,20) : contact.messages[contact.messages.length-1].text}}</span>
                             <span v-if="contact.messages.length > 0" class="chat-message__time">{{ dateToText(contact.messages[contact.messages.length - 1], false) }}</span>
                         </span>
                     </div>
@@ -87,12 +87,21 @@
                     <p>Send and receive messages without connecting your phone. Use WhatsApp on up to 4 devices at once.</p>
                 </div>
             </div>
-            <div v-if="currentChat != null" class="message-box">
-                <div v-for="(message, index) in currentChat.messages" :class="[isFirstMsg(message,index) ? 'chat-message--first' : '', message.isReceived ? 'chat-message--receiver' : 'chat-message--sender']" class="chat-message">
+            <div v-if="currentChat != null" ref="message-box" class="message-box">
+                <div v-for="(message, index) in currentChat.messages" :class="[isFirstMsg(message,index) ? 'chat-message--first' : '', message.isReceived ? 'chat-message--receiver' : 'chat-message--sender', index == currentChat.messages.length - 1 ? 'last-message' : '']" class="chat-message">
                     <div v-if="message.media != null" class="media-box">
                         <img :src="message.media">
                     </div>
                     <div class="message">{{ message.text }}</div>
+                    <span class="message-menu-toggle"  @click = "msgMenu()">
+                        <i :class="message.media != null ? 'icon--white':''" class="fa-solid fa-chevron-down"></i>
+                        <div :class="isMenuOpen ? 'message-menu-show' : ''" class="message-menu">
+                            <ul>
+                                <li role="button" @click="deleteMsg(index)">Delete message</li>
+                                <li>Info</li>
+                            </ul>
+                        </div>
+                    </span>
                     <span class="chat-message__time">{{ getMessageTime(message) }}</span>
                 </div>
             </div>
@@ -103,7 +112,7 @@
                 <div class="btn btn--opaque" role="button">
                     <span class="material-icons">attach_file</span>
                 </div>
-                <input type="text" placeholder="Write a message..." v-model="newMsg" @keydown.enter="sendMessage(currentChat)">
+                <input type="text" placeholder="Write a message..." v-model="newMsg" @keydown.enter="sendMessage(currentChat), scrollToLast">
                 <div class="btn btn--opaque" role="button" @click="newMsg != '' ? sendMessage(currentChat) : ''">
                     <span v-if="newMsg.trim() == ''" class="material-icons">mic</span>
                     <span v-if="newMsg.trim() != ''" class="material-icons">send</span> 

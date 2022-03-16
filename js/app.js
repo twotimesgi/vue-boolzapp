@@ -90,7 +90,8 @@ var app = new Vue({
             "I will look for you, I will find you, and I will kill you.",
             "😂😂😂😂",
         ],
-        contactStatus: ""
+        contactStatus: "",
+        isMenuOpen: false 
     },
     methods:{
         chatSwitch(contact){
@@ -155,7 +156,17 @@ var app = new Vue({
             setTimeout(()=>{
                 this.contactStatus = "";
             },4000);
-        }   
+        },
+        msgMenu(){
+            this.isMenuOpen = !this.isMenuOpen;
+        },
+        deleteMsg(index){
+            this.currentChat.messages.splice(index,1);
+        },
+        scrollToLast() {
+            const container = this.$refs.message-box;
+            container.scrollBottom = container.scrollHeight;
+        },
     },
     created(){
         this.conversationsFiltered = [...this.conversations];
