@@ -11,6 +11,9 @@ a{
 body{
     background-color: #e0e0e0;
     font-family: 'Lato', sans-serif;
+    min-width: 900px;
+    height: 100vh;
+    overflow: hidden;
 }
 
 body::after{

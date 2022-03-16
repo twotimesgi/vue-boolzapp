@@ -82,7 +82,14 @@ var app = new Vue({
         currentChat: null,
         newMsg: "",
         conversationsFiltered: null,
-        query: ""
+        query: "",
+        replyMessages: [
+            "I love the smell of napalm in the morning.",
+            "I'm gonna make him an offer he can't refuse.",
+            "Frankly, my dear, I don't give a damn.",
+            "I will look for you, I will find you, and I will kill you.",
+            "😂😂😂😂",
+        ]
     },
     methods:{
         chatSwitch(contact){
@@ -128,9 +135,17 @@ var app = new Vue({
             let newDate = new Date().toLocaleString("en-US"); 
             currentChat.messages.push({ date: newDate, text: this.newMsg, isReceived: false});
             this.newMsg = "";
+            this.replyMessage(currentChat);
         },
         searchConversations(){
             this.conversationsFiltered = this.conversations.filter(conv => conv.name.toLowerCase().startsWith(this.query.trim().toLowerCase()));
+        },
+        replyMessage(currentChat){
+            let newDate = new Date().toLocaleString("en-US"); 
+            let randN = Math.floor(Math.random() * this.replyMessages.length)
+            setTimeout(()=>{
+                currentChat.messages.push({date: newDate, text: this.replyMessages[randN], isReceived: true})
+            }, 2000);
         }
     },
     created(){
