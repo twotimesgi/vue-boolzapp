@@ -90,7 +90,7 @@ var app = new Vue({
             "I will look for you, I will find you, and I will kill you.",
             "😂😂😂😂",
         ],
-        isTyping: false
+        contactStatus: ""
     },
     methods:{
         chatSwitch(contact){
@@ -144,12 +144,18 @@ var app = new Vue({
         replyMessage(currentChat){
             let newDate = new Date().toLocaleString("en-US"); 
             let randN = Math.floor(Math.random() * this.replyMessages.length)
-            this.isTyping = true;
+            this.contactStatus = "Typing...";
+
             setTimeout(()=>{
-                currentChat.messages.push({date: newDate, text: this.replyMessages[randN], isReceived: true})
-                this.isTyping = false;
+                currentChat.messages.push({date: newDate, text: this.replyMessages[randN], isReceived: true});
+                currentChat.lastSeen = newDate;
+                this.contactStatus = "Online";
             }, 2000);
-        }
+
+            setTimeout(()=>{
+                this.contactStatus = "";
+            },4000);
+        }   
     },
     created(){
         this.conversationsFiltered = [...this.conversations];

@@ -55,8 +55,8 @@
                         <div class="rounded"><img :src="contact.profilePic" alt="Pippo's profile pic"></div>
                         <span class="text-box">
                             <span class="text-box__title">{{ contact.name }}</span>
-                            <span class="text-box__subtitle">{{ contact.messages[contact.messages.length-1].text }}</span>
-                            <span class="chat-message__time">{{ dateToText(contact.messages[contact.messages.length - 1], false) }}</span>
+                            <span v-if="contact.messages.length > 0" class="text-box__subtitle">{{ contact.messages[contact.messages.length-1].text }}</span>
+                            <span v-if="contact.messages.length > 0" class="chat-message__time">{{ dateToText(contact.messages[contact.messages.length - 1], false) }}</span>
                         </span>
                     </div>
                 </div>
@@ -68,7 +68,7 @@
                     <div class="rounded rounded--small"><img :src="currentChat.profilePic" alt="pippo's profile pic"></div>
                     <span class="text-box">
                         <span class="text-box__title"> {{ currentChat.name }}</span>
-                        <span class="text-box__subtitle"> {{ isTyping ? 'Typing...' : 'Last seen ' + dateToText(currentChat) }}</span>
+                        <span class="text-box__subtitle"> {{ contactStatus ? contactStatus : 'Last seen ' + dateToText(currentChat) }}</span>
                     </span>
                 </div>
                 <div class="top-bar__right">

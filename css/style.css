@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+:root{
+    
+}
+
 a{
     color: black;
 }
@@ -62,7 +66,7 @@ body::after{
     justify-content: space-between;
     align-items: center;
     padding: 0 0.6rem;
-    z-index: 3;
+    z-index: 5;
 }
 
 .app_chat-list .top-bar{
@@ -143,7 +147,7 @@ body::after{
     padding: 0 1.95rem;
     gap: 30px;
     align-items: center;
-    z-index: 3;
+    z-index: 5;
 }
 
 .message-bar input{
@@ -337,7 +341,7 @@ body::after{
 .media-box img{
     width: 100%;
     border-radius: 10px;
-    z-index: 10;
+    z-index: 4;
     position: relative;
 }
 
