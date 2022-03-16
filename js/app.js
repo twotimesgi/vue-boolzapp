@@ -151,6 +151,7 @@ var app = new Vue({
                 currentChat.messages.push({date: newDate, text: this.replyMessages[randN], isReceived: true});
                 currentChat.lastSeen = newDate;
                 this.contactStatus = "Online";
+                this.scrollToLast();
             }, 2000);
 
             setTimeout(()=>{
@@ -164,8 +165,8 @@ var app = new Vue({
             this.currentChat.messages.splice(index,1);
         },
         scrollToLast() {
-            const container = this.$refs.message-box;
-            container.scrollBottom = container.scrollHeight;
+            const container = this.$el.querySelector(".message-box");
+            container.scrollTop = container.scrollHeight;
         },
     },
     created(){
