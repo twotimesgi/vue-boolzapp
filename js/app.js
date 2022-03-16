@@ -89,7 +89,8 @@ var app = new Vue({
             "Frankly, my dear, I don't give a damn.",
             "I will look for you, I will find you, and I will kill you.",
             "😂😂😂😂",
-        ]
+        ],
+        isTyping: false
     },
     methods:{
         chatSwitch(contact){
@@ -143,8 +144,10 @@ var app = new Vue({
         replyMessage(currentChat){
             let newDate = new Date().toLocaleString("en-US"); 
             let randN = Math.floor(Math.random() * this.replyMessages.length)
+            this.isTyping = true;
             setTimeout(()=>{
                 currentChat.messages.push({date: newDate, text: this.replyMessages[randN], isReceived: true})
+                this.isTyping = false;
             }, 2000);
         }
     },
