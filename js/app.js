@@ -77,6 +77,12 @@ var app = new Vue({
                         isReceived: true
                     }
                 ]
+            },
+            {
+                name: "Alby Graz",
+                lastSeen: "03/16/2022 11:30:55",
+                profilePic: "img/profile-pic_5.jpg",
+                messages: []
             }
         ],
         currentChat: null,
@@ -91,9 +97,13 @@ var app = new Vue({
             "😂😂😂😂",
         ],
         contactStatus: "",
-        isMenuOpen: false 
+        isMenuOpen: false,
+        darkTheme: false
     },
     methods:{
+        themeSwitch(){
+            this.darkTheme = !this.darkTheme;
+        },
         chatSwitch(contact){
             this.currentChat = contact;
         },
