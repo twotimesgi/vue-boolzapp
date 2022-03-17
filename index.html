@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boolzap Web</title>
@@ -16,7 +17,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,400&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="light-theme">
     <div id="app" class="app">
         <div class="app_chat-list">
             <div class="top-bar">
@@ -51,11 +52,11 @@
                     <input v-model="query" placeholder="Search or start a new chat" @input = "searchConversations" type="text">
                 </div>
                 <div class="chat-list__conversations">
-                    <div v-for="contact in conversationsFiltered" :class="currentChat != null && contact == currentChat ? 'conversation--selected':''" class="conversation" @click="chatSwitch(contact)">
-                        <div class="rounded"><img :src="contact.profilePic" alt="Pippo's profile pic"></div>
+                    <div v-for="contact in conversationsFiltered" v-if="contact.messages.length > 0 || query != ''" :class="currentChat != null && contact == currentChat ? 'conversation--selected':''" class="conversation" @click="chatSwitch(contact)">
+                        <div class="rounded"><img :src="contact.profilePic" :alt="contact.name + `'s profile pic`"></div>
                         <span class="text-box">
                             <span class="text-box__title">{{ contact.name }}</span>
-                            <span v-if="contact.messages.length > 0" class="text-box__subtitle">{{ contact.messages[contact.messages.length-1].text.length > 20 ? contact.messages[contact.messages.length-1].text.substring(0,20) : contact.messages[contact.messages.length-1].text}}</span>
+                            <span v-if="contact.messages.length > 0" class="text-box__subtitle">{{ contact.messages[contact.messages.length-1].text.length > 20 ? contact.messages[contact.messages.length-1].text.substring(0,20) + '...' : contact.messages[contact.messages.length-1].text}}</span>
                             <span v-if="contact.messages.length > 0" class="chat-message__time">{{ dateToText(contact.messages[contact.messages.length - 1], false) }}</span>
                         </span>
                     </div>

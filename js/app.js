@@ -30,7 +30,7 @@ var app = new Vue({
             },
             {
                 name: "Fefe",
-                lastSeen: "03/14/2022 15:30:55",
+                lastSeen: "03/15/2022 15:30:55",
                 profilePic: "img/profile-pic_2.jpg",
                 messages: [
                     {
@@ -46,7 +46,7 @@ var app = new Vue({
                         isReceived: true
                     },
                     {
-                        date: "03/14/2022 16:10:55",
+                        date: "03/15/2022 16:10:55",
                         text: "Alla grande!",
                         media: null,
                         isReceived: true
@@ -137,6 +137,7 @@ var app = new Vue({
             let newDate = new Date().toLocaleString("en-US"); 
             currentChat.messages.push({ date: newDate, text: this.newMsg, isReceived: false});
             this.newMsg = "";
+            this.sentSound();
             this.replyMessage(currentChat);
         },
         searchConversations(){
@@ -149,6 +150,7 @@ var app = new Vue({
 
             setTimeout(()=>{
                 currentChat.messages.push({date: newDate, text: this.replyMessages[randN], isReceived: true});
+                this.receivedSound()
                 currentChat.lastSeen = newDate;
                 this.contactStatus = "Online";
                 this.scrollToLast();
@@ -163,11 +165,22 @@ var app = new Vue({
         },
         deleteMsg(index){
             this.currentChat.messages.splice(index,1);
+            console.log("Tic")
         },
         scrollToLast() {
             const container = this.$el.querySelector(".message-box");
             container.scrollTop = container.scrollHeight;
         },
+        sentSound() {
+            let audioSent = new Audio("../audio/01.mp3");
+            audioSent.play();
+            audioSent.volume = 0.3;
+        },
+        receivedSound() {
+            let audioReceived = new Audio("../audio/02.mp3");
+            audioReceived.play();
+            audioReceived.volume = 0.3;
+        }
     },
     created(){
         this.conversationsFiltered = [...this.conversations];
