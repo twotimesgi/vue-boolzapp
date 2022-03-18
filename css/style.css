@@ -22,7 +22,7 @@ input:focus{
 /* top bar */
     --bg-color-topbar: #202C33;
     --border-color-topbar: #26323A;
-/* rounded*/
+/* rounded*/ 
     --border-color-rounded: #26323A;
 /* message bar */
     --bg-color-messagebar: #202C33;
@@ -497,7 +497,7 @@ a{
 
 .emoji-picker{
     position: absolute;
-    bottom: 100px;
+    bottom: 90px; 
     width: 400px;
     height: 300px;
     overflow-y: scroll;
@@ -509,5 +509,14 @@ a{
 
 
 .emoji-picker input{
-    border: 1px solid black;
+    border: 1px solid rgb(218, 218, 218);
+    padding: 0.3rem;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.emoji-picker div{
+    gap: 5px;
+    display: flex;
+    flex-wrap: wrap;
 }

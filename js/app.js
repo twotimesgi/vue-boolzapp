@@ -85,6 +85,7 @@ var app = new Vue({
                 messages: []
             }
         ],
+        search: "",
         currentChat: null,
         newMsg: "",
         conversationsFiltered: null,
