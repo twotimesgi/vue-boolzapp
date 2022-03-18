@@ -4,7 +4,7 @@ var app = new Vue({
         conversations: 
         [
             {
-                name: "Pippo🍾",
+                name: "Philip",
                 lastSeen: "03/15/2022 12:30:55",
                 profilePic: "img/profile-pic_1.jpg",
                 messages: [
@@ -29,7 +29,7 @@ var app = new Vue({
                 ]
             },
             {
-                name: "Fefe",
+                name: "Sarah",
                 lastSeen: "03/15/2022 15:30:55",
                 profilePic: "img/profile-pic_2.jpg",
                 messages: [
@@ -54,25 +54,80 @@ var app = new Vue({
                 ]
             },
             {
-                name: "Babbo",
+                name: "Dad",
                 lastSeen: "03/11/2022 12:30:55",
                 profilePic: "img/profile-pic_4.jpg",
                 messages: [
                     {
                         date: "10/01/2020 15:30:55",
-                        text: "Hai portato a spasso il cane?",
+                        text: "Your great aunt just passed away. LOL",
                         media: null,
-                        isReceived: false
+                        isReceived: true
                     },
                     {
                         date: "10/01/2020 15:50:55",
-                        text: "Ricordati di stendere i panni",
+                        text: "Why is that funny??",
                         media: null,
                         isReceived: false
                     },
                     {
                         date: "3/11/2022 16:10:55",
-                        text: "Tutto fatto!",
+                        text: "It's not funny at all!",
+                        media: null,
+                        isReceived: true
+                    },
+                    {
+                        date: "3/11/2022 16:10:55",
+                        text: "Why do you think it's funny?",
+                        media: null,
+                        isReceived: true
+                    },
+                    {
+                        date: "3/11/2022 16:10:55",
+                        text: "Why do you think it's funny?",
+                        media: null,
+                        isReceived: true
+                    },
+                    {
+                        date: "3/11/2022 16:10:55",
+                        text: "Dad lol means laughing out loud!",
+                        media: null,
+                        isReceived: false
+                    },
+                    {
+                        date: "3/11/2022 16:10:55",
+                        text: "Ohh my god! I sent that to everyone.",
+                        media: null,
+                        isReceived: true
+                    },
+                    {
+                        date: "3/11/2022 16:10:55",
+                        text: "I thought it means lots of love.",
+                        media: null,
+                        isReceived: true
+                    }
+                ]
+            },
+            {
+                name: "Dave",
+                lastSeen: "03/11/2022 12:30:55",
+                profilePic: "img/profile-pic_6.jpg",
+                messages: [
+                    {
+                        date: "10/01/2020 15:30:55",
+                        text: "Sai che ieri sono andato a mangiare al Sushi?",
+                        media: null,
+                        isReceived: true
+                    },
+                    {
+                        date: "10/01/2020 15:50:55",
+                        text: "Si? Ti sei trovato bene?",
+                        media: null,
+                        isReceived: false
+                    },
+                    {
+                        date: "3/11/2022 16:10:55",
+                        text: "Molto!",
                         media: null,
                         isReceived: true
                     }
@@ -91,11 +146,11 @@ var app = new Vue({
         conversationsFiltered: null,
         query: "",
         replyMessages: [
-            "I love the smell of napalm in the morning.",
-            "I'm gonna make him an offer he can't refuse.",
+            "Ok great!",
+            "Good, do what you want.",
             "Frankly, my dear, I don't give a damn.",
-            "I will look for you, I will find you, and I will kill you.",
-            "😂😂😂😂",
+            "LOL😂😂😂",
+            "OMG😮"
         ],
         contactStatus: "",
         isMenuOpen: false,
@@ -115,6 +170,12 @@ var app = new Vue({
            }
            return false;
         },
+        isLastMsg(message,index){
+            if(index == this.currentChat.messages.length-1 || this.currentChat.messages[index].isReceived != this.currentChat.messages[index+1].isReceived){
+                return true;
+            }
+            return false;
+         },
         getMessageTime(message){
             let date = new Date(message.date);
             return date.toLocaleTimeString("en-US", {hour: '2-digit', minute: '2-digit'});

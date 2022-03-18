@@ -148,7 +148,7 @@
                     </div>
                 </div>
                 <div v-if="currentChat != null" ref="box" class="message-box">
-                    <div v-for="(message, index) in currentChat.messages"
+                    <div v-for="(message, index) in currentChat.messages" :style="isLastMsg(message, index) ? 'margin-bottom: 15px': ''"
                         :class="[isFirstMsg(message,index) ? 'chat-message--first' : '', message.isReceived ? 'chat-message--receiver' : 'chat-message--sender', index == currentChat.messages.length - 1 ? 'last-message' : '']"
                         class="chat-message">
                         <div v-if="message.media != null" class="media-box">
@@ -168,15 +168,17 @@
                     </div>
                 </div>
                 <div v-if="currentChat != null" class="message-bar">
-                        <emoji-picker @emoji="insert">
+                        <emoji-picker @emoji="insert" :search="search">
                                 <div class="btn btn--opaque" role="button" slot="emoji-invoker" slot-scope="{ events: { click: clickEvent } }" @click.stop="clickEvent" class="material-icons">
                                     <span class="material-icons">sentiment_satisfied_alt</span>
                                 </div>
                             <div class="emoji-picker" slot="emoji-picker" slot-scope="{ emojis, insert, display }">
-                              <div>
+                                <input type="text" v-model="search" placeholder="Search emoji...">
+
+                                <div>
                                 <div>
                                   <div v-for="(emojiGroup, category) in emojis" :key="category">
-                                    <h5>{{ category }}</h5>
+                                    <h5 v-if="category != 'Frequently used'">{{ category }}</h5>
                                     <div>
                                       <span
                                         v-for="(emoji, emojiName) in emojiGroup"
