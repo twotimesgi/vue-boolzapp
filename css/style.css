@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+input:focus{
+    outline: none;
+}
+
 .dark-theme{
     /* BODY */
     --bg-color: #0A1015;
@@ -37,6 +41,8 @@
 /* message menu*/
 --bg-color-msgmenu: #233138;
 --bg-color-msgmenu-hover: #182229;
+/* Banner */
+--bg-color-banner: #113647;
 }
 
 .light-theme{
@@ -72,7 +78,8 @@
 /* message menu*/
 --bg-color-msgmenu: #fff;
 --bg-color-msgmenu-hover: #F5F6F6;
-
+/* Banner */
+--bg-color-banner: #8EDAFC;
 }
 
 a{
@@ -395,7 +402,7 @@ a{
 }
 
 .banner{
-    background-color: #8EDAFC;
+    background-color: var(--bg-color-banner);
     min-height: 5rem;
     width: 100%;
     height: auto;
@@ -412,7 +419,7 @@ a{
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    color: #8EDAFC;
+    color: #ffff;
 }
 
 .chat-list__search{
@@ -485,4 +492,22 @@ a{
         width: 100%;
         height: 100vh;
     }
+}
+
+
+.emoji-picker{
+    position: absolute;
+    bottom: 100px;
+    width: 400px;
+    height: 300px;
+    overflow-y: scroll;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 10px rgba(0,0,0,0.05);
+}
+
+
+.emoji-picker input{
+    border: 1px solid black;
 }

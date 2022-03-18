@@ -191,10 +191,14 @@ var app = new Vue({
             let audioReceived = new Audio("../audio/02.mp3");
             audioReceived.play();
             audioReceived.volume = 0.3;
-        }
+        },
+        insert(emoji) {
+            this.newMsg += emoji
+        },
     },
     created(){
         this.conversationsFiltered = [...this.conversations];
     }
   });
+  
   
