@@ -106,6 +106,7 @@ var app = new Vue({
         },
         chatSwitch(contact){
             this.currentChat = contact;
+            this.scrollToLast();
         },
         isFirstMsg(message,index){
            if(index == 0 || this.currentChat.messages[index].isReceived != this.currentChat.messages[index-1].isReceived){
@@ -175,11 +176,11 @@ var app = new Vue({
         },
         deleteMsg(index){
             this.currentChat.messages.splice(index,1);
-            console.log("Tic")
         },
         scrollToLast() {
-            const container = this.$el.querySelector(".message-box");
-            container.scrollTop = container.scrollHeight;
+            this.$nextTick(() => {
+                this.$refs.box.scrollTop = this.$refs.box.scrollHeight
+              })
         },
         sentSound() {
             let audioSent = new Audio("../audio/01.mp3");

@@ -39,7 +39,8 @@
                             <span class="material-icons">more_vert</span>
                         </div>
                         <div class="btn" role="button">
-                            <span @click="themeSwitch" class="material-icons">mode_night</span>
+                            <span @click="themeSwitch" v-show="!darkTheme" class="material-icons">mode_night</span>
+                            <span @click="themeSwitch" v-show="darkTheme" class="material-icons">light_mode</span>
                         </div>
                     </div>
                 </div>
@@ -146,7 +147,7 @@
                             once.</p>
                     </div>
                 </div>
-                <div v-if="currentChat != null" ref="message-box" class="message-box">
+                <div v-if="currentChat != null" ref="box" class="message-box">
                     <div v-for="(message, index) in currentChat.messages"
                         :class="[isFirstMsg(message,index) ? 'chat-message--first' : '', message.isReceived ? 'chat-message--receiver' : 'chat-message--sender', index == currentChat.messages.length - 1 ? 'last-message' : '']"
                         class="chat-message">
